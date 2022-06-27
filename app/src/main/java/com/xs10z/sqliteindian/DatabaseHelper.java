@@ -23,7 +23,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, SURNAME TEXT, MARKS INTEGER)  ");
+        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, SURNAME TEXT, MARKS TEXT)  ");
 
     }
 
@@ -40,10 +40,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_3, surname);
         contentValues.put(COL_4, marks);
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if (result == -1)
+        if (result == -1) {
             return false;
-        else
+        } else {
             return true;
+        }
 
 
 
